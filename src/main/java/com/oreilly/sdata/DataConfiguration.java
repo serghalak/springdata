@@ -9,6 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.hibernate.ejb.HibernatePersistence;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +30,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan("com.oreilly.sdata")
 @PropertySource("classpath:app.properties")
 public class DataConfiguration {
-	
+	//@Value("${db.driver}")
 	private static final String PROP_DATABASE_DRIVER = "db.driver";
     private static final String PROP_DATABASE_PASSWORD = "db.password";
     private static final String PROP_DATABASE_URL = "db.url";

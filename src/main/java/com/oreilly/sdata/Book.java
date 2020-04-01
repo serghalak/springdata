@@ -10,8 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Proxy;
+
 @Entity
 @Table(name = "BOOK")
+@Proxy(lazy = false)
 public class Book {
 
 	@Id
@@ -82,4 +85,11 @@ public class Book {
 		this.price = price;
 	}
 
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", title=" + title + ", publishDate=" + publishDate + ", pageCount="
+				+ pageCount + ", price=" + price + "]";
+	}
+		
+	
 }

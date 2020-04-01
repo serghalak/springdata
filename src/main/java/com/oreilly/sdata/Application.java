@@ -15,7 +15,7 @@ public class Application {
 				new AnnotationConfigApplicationContext(
 						DataConfiguration.class)){
 		BookService service=context.getBean("bookService",BookService.class);
-		service.save(new Book("First Book",new Date(),33,new BigDecimal("26.00")));
+		 service.save(new Book("First Book",new Date(),33,new BigDecimal("26.00")));
 		}finally{
 			
 		}

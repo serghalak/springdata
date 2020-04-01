@@ -10,7 +10,7 @@ public class BookService {
 	private BookRepository bookRepo;
 	
 	public void save(Book book){
-		bookRepo.save(book);
+		//bookRepo.save(book);
 	}
 	
 }
