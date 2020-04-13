@@ -8,9 +8,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
+import org.springframework.data.jpa.repository.Query;
+
+
+
+@NamedQueries({
+	@NamedQuery(name="Book.queryOne" 
+			, query="select b from Book b"),
+	@NamedQuery(name="Book.queryTwo" 
+			,query="select b from Book b where b.pageCount > ?1"),
+	@NamedQuery(name="Book.queryThree"
+			, query="select b from Book b where b.title = :title")
+})
 
 @Entity
 @Table(name = "BOOK")

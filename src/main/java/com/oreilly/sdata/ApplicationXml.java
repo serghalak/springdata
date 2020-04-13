@@ -1,16 +1,20 @@
 package com.oreilly.sdata;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 public class ApplicationXml {
 
 	@SuppressWarnings("resource")
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		// TODO Auto-generated method stub
 		ClassPathXmlApplicationContext context=
 				new ClassPathXmlApplicationContext("application-context.xml");
@@ -19,7 +23,10 @@ public class ApplicationXml {
 //		
 //		context.close();
 		BookRepository bookRepository=context.getBean("bookRepository",BookRepository.class);
-		System.out.println(bookRepository.findOne(1L));
+		//System.out.println(bookRepository.findOne(1L));
+		
+		//System.out.println(bookRepository.findByTitle("Design Patterns"));
+		
 		//ArrayList<Long>listId=new ArrayList();
 //		List<Book> books= bookRepository.findAll(new ArrayList<Long>(){{
 //			add(1L);
@@ -29,8 +36,37 @@ public class ApplicationXml {
 //		for(Book book: books)
 //			System.out.println(book);
 		
+//		for(Book book : bookRepository.findByTitleLike("%f%")){
+//			System.out.println(book);
+//		}
 		
+//		Date date=new SimpleDateFormat("MM/dd/yyyy").parse("10/22/1995");
+//		
+//		for(Book book : bookRepository.findByPublishDateAfter(date)){
+//			System.out.println(book);
+//		}
 		
-	}
+//		for(Book book : bookRepository.queryOne()){
+//			System.out.println(book);
+//		}
+		
+		//pagable
+//		for(Book book : 
+//			bookRepository
+//				.findByPageCountGreaterThan(99,new PageRequest(0,2))
+//				){
+//			System.out.println(book);
+//		}
+		
+//		for(Book book : bookRepository.findAll(
+//				new Sort(Sort.Direction.DESC,"price")
+//					.and(new Sort(Sort.Direction.ASC,"pageCount")))){
+//			System.out.println(book);
+//		}
+	
+		for(Book book : bookRepository.findByPageCountGreatherThan(100,
+				new Sort("pageCount")))
+			System.out.println(book);
+		}
 
 }
