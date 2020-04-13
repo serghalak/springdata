@@ -8,7 +8,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 
 public class ApplicationXml {
@@ -64,9 +66,15 @@ public class ApplicationXml {
 //			System.out.println(book);
 //		}
 	
-		for(Book book : bookRepository.findByPageCountGreatherThan(100,
-				new Sort("pageCount")))
-			System.out.println(book);
-		}
+//		for(Book book : bookRepository.findByPageCountGreatherThan(100,
+//				new Sort("pageCount"))){
+//			System.out.println(book);
+//		}
+		
+		Page page =bookRepository.findByPageCountGreaterThan(10,new PageRequest(0,3));
+		System.out.println("Page>>>>>>>>>"+page.getContent());
+		
+		
 
+	}
 }

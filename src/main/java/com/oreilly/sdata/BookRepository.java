@@ -3,7 +3,9 @@ package com.oreilly.sdata;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -55,8 +57,11 @@ public interface BookRepository
 	//@Query("select b from Book b where b.title=:title")
 	public List<Book>queryThree(@Param("title")String title);
 	
-	public List<Book>findByPageCountGreaterThan(
-			int pageCount,Pageable pageable);
+//	public List<Book>findByPageCountGreaterThan(
+//			int pageCount,Pageable pageable);
 	
-	public List<Book>findByPageCountGreatherThan(int pageCount,Sort sort );	
+	//public List<Book>findByPageCountGreatherThan(int pageCount,Sort sort );	
+	
+	public Page<Book>findByPageCountGreaterThan(
+			int pageCount,Pageable pageable);
 }
