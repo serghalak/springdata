@@ -24,11 +24,11 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Configuration
-@EnableJpaRepositories("com.oreilly.sdata")
-@EnableTransactionManagement
-@ComponentScan("com.oreilly.sdata")
-@PropertySource("classpath:app.properties")
+//@Configuration
+//@EnableJpaRepositories("com.oreilly.sdata")
+//@EnableTransactionManagement
+//@ComponentScan("com.oreilly.sdata")
+//@PropertySource("classpath:app.properties")
 public class DataConfiguration {
 	//@Value("${db.driver}")
 	private static final String PROP_DATABASE_DRIVER = "db.driver";

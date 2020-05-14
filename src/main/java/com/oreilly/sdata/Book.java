@@ -28,7 +28,7 @@ import org.springframework.data.jpa.repository.Query;
 
 @Entity
 @Table(name = "BOOK")
-@Proxy(lazy = false)
+//@Proxy(lazy = false)
 public class Book {
 
 	@Id

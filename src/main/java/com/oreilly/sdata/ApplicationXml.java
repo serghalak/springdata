@@ -6,8 +6,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Slice;
@@ -38,9 +40,15 @@ public class ApplicationXml {
 //		for(Book book: books)
 //			System.out.println(book);
 		
-//		for(Book book : bookRepository.findByTitleLike("%f%")){
-//			System.out.println(book);
-//		}
+		
+		Environment env= context.getEnvironment();
+		Properties ht = System.getProperties();
+		
+		System.out.println("***************************"+env.getProperty("java.version"));
+		
+		for(Book book : bookRepository.findByTitleLike("%f%")){
+			System.out.println(book);
+		}
 		
 //		Date date=new SimpleDateFormat("MM/dd/yyyy").parse("10/22/1995");
 //		
@@ -70,11 +78,13 @@ public class ApplicationXml {
 //				new Sort("pageCount"))){
 //			System.out.println(book);
 //		}
+//		
+//		Page page =bookRepository.findByPageCountGreaterThan(10,new PageRequest(0,3));
+//		System.out.println("Page>>>>>>>>>"+page.getContent());
 		
-		Page page =bookRepository.findByPageCountGreaterThan(10,new PageRequest(0,3));
-		System.out.println("Page>>>>>>>>>"+page.getContent());
-		
-		
+		for(Book b : bookRepository.findByIds(1L,2L,3L)){
+			System.out.println(b);
+		}
 
 	}
 }
