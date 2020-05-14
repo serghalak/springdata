@@ -86,9 +86,15 @@ public class ApplicationXml {
 //			System.out.println(b);
 //		}
 		
-		for(long x=0;x<4;x++){
-			bookRepository.findByIds(x);
-		}
+//		for(long x=0;x<4;x++){
+//			bookRepository.findByIds(x);
+//		}
+		
+		
+		Book book=new Book("First Book",new Date(),33,new BigDecimal("26.00"));
+		bookRepository.save(book);
+		
+		System.out.println(bookRepository.findById(book.getBookId()));
 
 	}
 }
