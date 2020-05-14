@@ -41,14 +41,14 @@ public class ApplicationXml {
 //			System.out.println(book);
 		
 		
-		Environment env= context.getEnvironment();
-		Properties ht = System.getProperties();
-		
-		System.out.println("***************************"+env.getProperty("java.version"));
-		
-		for(Book book : bookRepository.findByTitleLike("%f%")){
-			System.out.println(book);
-		}
+//		Environment env= context.getEnvironment();
+//		Properties ht = System.getProperties();
+//		
+//		System.out.println("***************************"+env.getProperty("java.version"));
+//		
+//		for(Book book : bookRepository.findByTitleLike("%f%")){
+//			System.out.println(book);
+//		}
 		
 //		Date date=new SimpleDateFormat("MM/dd/yyyy").parse("10/22/1995");
 //		
@@ -91,10 +91,17 @@ public class ApplicationXml {
 //		}
 		
 		
-		Book book=new Book("First Book",new Date(),33,new BigDecimal("26.00"));
-		bookRepository.save(book);
+//		Book book=new Book("First Book",new Date(),33,new BigDecimal("26.00"));
+//		bookRepository.save(book);
+//		
+//		System.out.println(bookRepository.findById(book.getBookId()));
 		
-		System.out.println(bookRepository.findById(book.getBookId()));
+		System.out.println(">>>>>was updating: " + bookRepository.setPageCount("For Whom the Bell Tolls", 1000));
+		
+		for(Book book : bookRepository.findAll()){
+			System.out.println(book);
+		}
+		
 
 	}
 }
