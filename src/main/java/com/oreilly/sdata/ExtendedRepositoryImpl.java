@@ -42,6 +42,15 @@ public class ExtendedRepositoryImpl<T,ID extends Serializable>
 				+this.entityInformation.getIdAttribute().getName()
 				+" in :ids");
 		query.setParameter("ids", Arrays.asList(ids));
+		
+		System.out.println("we sleep for 5 sec");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("we finished sleep");
 		return (List<T>)query.getResultList();
 	}
 	

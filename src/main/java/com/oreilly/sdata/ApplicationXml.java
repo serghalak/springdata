@@ -82,8 +82,12 @@ public class ApplicationXml {
 //		Page page =bookRepository.findByPageCountGreaterThan(10,new PageRequest(0,3));
 //		System.out.println("Page>>>>>>>>>"+page.getContent());
 		
-		for(Book b : bookRepository.findByIds(1L,2L,3L)){
-			System.out.println(b);
+//		for(Book b : bookRepository.findByIds(1L,2L,3L)){
+//			System.out.println(b);
+//		}
+		
+		for(long x=0;x<4;x++){
+			bookRepository.findByIds(x);
 		}
 
 	}
