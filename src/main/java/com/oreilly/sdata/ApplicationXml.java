@@ -3,6 +3,8 @@ package com.oreilly.sdata;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -96,8 +98,13 @@ public class ApplicationXml {
 //		
 //		System.out.println(bookRepository.findById(book.getBookId()));
 		
-		System.out.println(">>>>>was updating: " + bookRepository.setPageCount("For Whom the Bell Tolls", 1000));
+//		System.out.println(">>>>>was updating: " 
+//		+ bookRepository.setPageCount("For Whom the Bell Tolls", 1000));
 		
+		bookRepository.setPageCount("%For Whom the Bell Tolls%", 1000);
+		
+		Book bookNew=new  Book("Design Patterns",Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()),123,new BigDecimal("321"));
+		bookRepository.save(bookNew);
 		for(Book book : bookRepository.findAll()){
 			System.out.println(book);
 		}

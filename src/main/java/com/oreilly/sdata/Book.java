@@ -56,6 +56,7 @@ public class Book {
 	@Column(name = "PRICE")
 	private BigDecimal price;
 	
+	//for listener auditing	
 	@CreatedBy
 	private String createdBy;
 	@LastModifiedBy

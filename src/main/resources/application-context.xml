@@ -16,6 +16,7 @@
 	<task:executor id="executor" pool-size="10"/>
 	<task:annotation-driven executor="executor"/>
 	
+	<!-- audition -->
 	<bean id="customAuditorAware" class="com.oreilly.sdata.CustomAuditorAware"/>
 	<jpa:auditing auditor-aware-ref="customAuditorAware" />
 	
