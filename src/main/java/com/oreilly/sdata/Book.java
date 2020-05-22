@@ -36,7 +36,7 @@ import org.springframework.data.jpa.repository.Query;
 @Table(name = "BOOK")
 //@Proxy(lazy = false)
 
-@EntityListeners(AuditingEntityListener.class)
+//@EntityListeners(AuditingEntityListener.class)
 public class Book {
 
 	@Id
@@ -57,14 +57,14 @@ public class Book {
 	private BigDecimal price;
 	
 	//for listener auditing	
-	@CreatedBy
-	private String createdBy;
-	@LastModifiedBy
-	private String lastModifiedBy;
-	@CreatedDate
-	private Date createdDate;
-	@LastModifiedDate
-	private Date lastModifiedDate;
+//	@CreatedBy
+//	private String createdBy;
+//	@LastModifiedBy
+//	private String lastModifiedBy;
+//	@CreatedDate
+//	private Date createdDate;
+//	@LastModifiedDate
+//	private Date lastModifiedDate;
 
 	public Book() {
 
@@ -117,43 +117,44 @@ public class Book {
 		this.price = price;
 	}
 
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public String getLastModifiedBy() {
-		return lastModifiedBy;
-	}
-
-	public void setLastModifiedBy(String lastModifiedBy) {
-		this.lastModifiedBy = lastModifiedBy;
-	}
-
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Date getLastModifiedDate() {
-		return lastModifiedDate;
-	}
-
-	public void setLastModifiedDate(Date lastModifiedDate) {
-		this.lastModifiedDate = lastModifiedDate;
-	}
+//	public String getCreatedBy() {
+//		return createdBy;
+//	}
+//
+//	public void setCreatedBy(String createdBy) {
+//		this.createdBy = createdBy;
+//	}
+//
+//	public String getLastModifiedBy() {
+//		return lastModifiedBy;
+//	}
+//
+//	public void setLastModifiedBy(String lastModifiedBy) {
+//		this.lastModifiedBy = lastModifiedBy;
+//	}
+//
+//	public Date getCreatedDate() {
+//		return createdDate;
+//	}
+//
+//	public void setCreatedDate(Date createdDate) {
+//		this.createdDate = createdDate;
+//	}
+//
+//	public Date getLastModifiedDate() {
+//		return lastModifiedDate;
+//	}
+//
+//	public void setLastModifiedDate(Date lastModifiedDate) {
+//		this.lastModifiedDate = lastModifiedDate;
+//	}
 
 	@Override
 	public String toString() {
 		return "Book [bookId=" + bookId + ", title=" + title + ", publishDate=" + publishDate + ", pageCount="
-				+ pageCount + ", price=" + price + ", createdBy=" + createdBy + ", lastModifiedBy=" + lastModifiedBy
-				+ ", createdDate=" + createdDate + ", lastModifiedDate=" + lastModifiedDate + "]";
+				+ pageCount + ", price=" + price + ""
+						/*+ ", createdBy=" + createdBy + ", lastModifiedBy=" + lastModifiedBy
+				+ ", createdDate=" + createdDate + ", lastModifiedDate=" + lastModifiedDate + */ + "]";
 	}
 
 	
